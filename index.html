@@ -435,16 +435,16 @@
         window.GFAudioEl = document.getElementById("GFAudio");
         window.GFCover = document.getElementById("GFCover");
         
-        window.GFscrollView.onscroll = function(){
-           if(window.GFLastScroll == window.GFscrollView.scrollTop){
-            console.log("on scroll + 1");
-           }
-           else{
-            clearTimeout(window.GFScrollEvent);
-           }
-         //   window.GFscrollView.scrollTop != window.GFLastScroll
+      //   window.GFscrollView.onscroll = function(){
+      //      if(window.GFLastScroll == window.GFscrollView.scrollTop){
+      //       console.log("on scroll + 1");
+      //      }
+      //      else{
+      //       clearTimeout(window.GFScrollEvent);
+      //      }
+      //    //   window.GFscrollView.scrollTop != window.GFLastScroll
            
-        }
+      //   }
 
         function GFNavFunc(){
           console.log('test');
@@ -453,12 +453,15 @@
 
         function GFScroll() {         
           window.GFscrollView.scrollBy(0,1);
-          window.GFLastScroll = window.GFLastScroll + 1;
-          
+                  
           if(window.GFscrollView.scrollTop + window.GFscrollView.clientHeight < window.GFscrollView.scrollHeight){
             console.log("scroll event triggered");
             console.log(window.GFscrollView.scrollTop);
-            window.GFScrollEvent = setTimeout(GFScroll,10);
+            if(window.GFLastScroll <= window.GFscrollView.scrollTop + 1){
+               console.log("on scroll + 1");
+               window.GFLastScroll = window.GFLastScroll + 1;
+               window.GFScrollEvent = setTimeout(GFScroll,10);
+            }
           }
         }
       
