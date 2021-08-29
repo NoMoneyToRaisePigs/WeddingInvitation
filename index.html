@@ -454,7 +454,7 @@
         function GFScroll() {         
           window.GFscrollView.scrollBy(0,1);
                   
-          if(window.GFscrollView.scrollTop + window.GFscrollView.clientHeight < window.GFscrollView.scrollHeight){
+          if(window.GFscrollView.scrollTop + document.body.clientHeight < window.GFscrollView.scrollHeight){
             console.log("scroll event triggered");
             console.log(window.GFscrollView.scrollTop);
             if(window.GFLastScroll <= window.GFscrollView.scrollTop + 1){
